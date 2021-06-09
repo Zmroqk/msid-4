@@ -23,6 +23,10 @@ def GaborFilter():
     return kernels
 
 
+def ApplyGaborSingle(image, kernel):
+    return cv2.filter2D(image, cv2.CV_8UC3, kernel)
+
+
 def ApplyGabor(x, kernels, path, label = "train"):
     index = 0
     for i, kernel in enumerate(kernels):
