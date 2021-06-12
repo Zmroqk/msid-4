@@ -1,3 +1,6 @@
 **.pkl
 .idea
 **.h5
+**.png
+__pycache__
+fashion-data
