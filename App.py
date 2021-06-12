@@ -21,7 +21,8 @@ if __name__ == '__main__':
     elif response == 3:
         ta.test_models()
     elif response == 4:
+        model_network, model_knn, model_kernel = app.init_app()
         while True:
-            app.run_predict()
+            app.run_predict(model_network, model_knn, model_kernel)
             if inp.ask_y_n("Do you want to exit application? (y or n): "):
                 exit(0)
