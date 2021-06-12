@@ -21,12 +21,12 @@ This time we used keras library to create a 6 - layerd neural network. In this c
   <tr>
     <td>KNN</td>
     <td>~15s * Number of filters * Number of K-values</td>
-    <td>~85</td>
+    <td>0.8511</td>
   </tr>
   <tr>
     <td>Neural network</td>
-    <td>~10 min</td>
-    <td>~92</td>
+    <td>~60-80s for an epoch</td>
+    <td>0.9287</td>
   </tr>
 </table>
 *On i9-9900K CPU
