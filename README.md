@@ -6,10 +6,10 @@ In this repository you can find application that can learn 2 models:
 
 # Methods
 ### KNN model:
-To learn this model we create gabor filters that we use to filter out features from the image. It creates us a new set of images we we save and use latter in traing a model.
+To learn this model we create gabor filters that we use to filter out features from the image. It creates us a new set of images we we save and use later in traing a model.
 To train a model we used sklearn module. We have to find the best filter and the best k value.
 ### Neural network:
-This time we used keras library to create a 6 - layerd neural network. In this case we don't have to extract features from images we can just put our mnist-dateset into it.
+This time we used keras library to create a 6 - layer neural network. In this case we don't have to extract features from images we can just put our mnist-dateset into it.
     
 # Results
 <table>
