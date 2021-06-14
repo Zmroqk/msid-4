@@ -1,12 +1,9 @@
-import keras.losses
 import sklearn.neighbors as skln
 import time
 
 import tensorflow as tf
-from keras.datasets import mnist
 from keras.models import Sequential
 from keras.layers import Dense, Dropout, Conv2D, MaxPool2D, Flatten
-from keras.utils import np_utils
 
 class KNNModel:
     def __init__(self):

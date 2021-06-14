@@ -1,5 +1,3 @@
-import sys
-
 import sklearn.neighbors as skln
 import numpy as np
 from data import load_mnist

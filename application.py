@@ -1,15 +1,10 @@
-import sys
-
 import sklearn.neighbors as skln
 import numpy as np
 from skimage import color
 from skimage import io
-import data as dt
 import features as f
 import pandas as pd
-import models as md
 from tensorflow.keras.models import load_model
-import matplotlib.pyplot as pl
 import input as inp
 
 labels = [

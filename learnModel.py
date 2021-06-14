@@ -1,6 +1,3 @@
-import random
-import sys
-
 import models
 import numpy as np
 import os
