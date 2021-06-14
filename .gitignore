@@ -2,5 +2,6 @@
 .idea
 **.h5
 **.png
+**.xlsx
 __pycache__
 fashion-data

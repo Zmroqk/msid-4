@@ -56,8 +56,42 @@ class NeuralNetworkModel:
         # training the model for 10 epochs
         self.model.fit(x, Y, epochs=10, validation_data=(x_val, Y_val), callbacks=tf.keras.callbacks.ReduceLROnPlateau(patience=2))
 
+    def learn_neural_network_2(self, X, Y, X_val, Y_val):
+        self.model = Sequential()
+        x = X.reshape(-1, 784)
+        x_val = X_val.reshape(-1, 784)
+        self.model.add(Dense(1000, activation='relu', input_shape=(784,)))
+        self.model.add(Dense(1000, activation='selu'))
+        self.model.add(Dense(500, activation='relu'))
+        # output layer
+        self.model.add(Dense(10))
+        # looking at the model summary
+        self.model.summary()
+        # compiling the sequential model
+        self.model.compile(loss=tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True), metrics=['accuracy'], optimizer='adam')
+        # training the model for 10 epochs
+        self.model.fit(x, Y, epochs=10, validation_data=(x_val, Y_val), callbacks=tf.keras.callbacks.ReduceLROnPlateau(patience=2))
 
 
+    def learn_neural_network_3(self, X, Y, X_val, Y_val):
+        self.model = Sequential()
+        x = X.reshape(-1, 28, 28, 1)
+        x_val = X_val.reshape(-1, 28, 28, 1)
+        # hidden layer
+        self.model.add(Conv2D(50, kernel_size=(5, 5), strides=(1, 1), padding='same', activation='relu', input_shape=(28, 28, 1)))
+        self.model.add(MaxPool2D(pool_size=(2, 2)))
+        self.model.add(Dropout(0.25))
+        self.model.add(Conv2D(50, kernel_size=(3, 3), strides=(1, 1), padding='same', activation='relu'))
+        # flatten output of conv
+        self.model.add(Flatten())
+        # output layer
+        self.model.add(Dense(10))
+        # looking at the model summary
+        self.model.summary()
+        # compiling the sequential model
+        self.model.compile(loss=tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True), metrics=['accuracy'], optimizer='adam')
+        # training the model for 10 epochs
+        self.model.fit(x, Y, epochs=10, validation_data=(x_val, Y_val), callbacks=tf.keras.callbacks.ReduceLROnPlateau(patience=2))
 
 
 

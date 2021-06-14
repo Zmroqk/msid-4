@@ -20,12 +20,23 @@ def test_models():
     path_model, path_neural_model, path_test_data = __test_models_input()
     model_data = pd.read_pickle(path_model)
     model: skln.KNeighborsClassifier = model_data["model"]
+    kernel = model_data["kernel"]
     modelNetwork = load_model(path_neural_model)
     x_test, y_test = load_mnist(path_test_data, kind="t10k")
     filtered_images = []
-    for i, image in enumerate(x_test):
-        filtered_images.append(f.ApplyGaborSingle(image, model_data["kernel"]))
+    if kernel is not None:
+        for i, image in enumerate(x_test):
+            filtered_images.append(f.ApplyGaborSingle(image, kernel))
+    else:
+        filtered_images = x_test
     y = model.predict(np.array(filtered_images).reshape(-1, 784))
     print(f"KNN score: {accuracy_score(y, y_test)}")
-    y = np.argmax(modelNetwork.predict(x_test.reshape(-1, 28, 28, 1) / 255.), axis=1)
+    y = []
+    try:
+        y = np.argmax(modelNetwork.predict(x_test.reshape(-1, 28, 28, 1) / 255.), axis=1)
+    except:
+        try:
+            y = np.argmax(modelNetwork.predict(x_test.reshape(-1, 784) / 255.), axis=1)
+        except:
+            pass
     print(f"Neural network score: {accuracy_score(y, y_test)}")
